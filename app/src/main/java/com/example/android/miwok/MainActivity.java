@@ -17,14 +17,37 @@ package com.example.android.miwok;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        // new instance of the event loistener, Schritt 2
+        NumbersClickListener numbersClickListener = new NumbersClickListener();
+        TextView numbers = (TextView)findViewById(R.id.numbers);
+
+        FamilyClickListener familyClickListener = new FamilyClickListener();
+        TextView family = (TextView)findViewById(R.id.family);
+
+        ColorClickListener colorClickListener = new ColorClickListener();
+        TextView colors = (TextView)findViewById(R.id.colors);
+
+        PhrasesClickListener phrasesClickListener = new PhrasesClickListener();
+        TextView phrases = (TextView)findViewById(R.id.phrases);
+
+
+        // attach listener to view, Schritt 3
+        numbers.setOnClickListener(numbersClickListener);
+        family.setOnClickListener(familyClickListener);
+        colors.setOnClickListener(colorClickListener);
+        phrases.setOnClickListener(phrasesClickListener);
+
+
     }
 }
